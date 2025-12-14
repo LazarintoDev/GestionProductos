@@ -1,0 +1,22 @@
+<div [class.fade-slide-in-table]="animarTabla">
+    @if (productos.length>0) {
+    <h3 class="fw-semibold text-center">Listado de productos</h3>
+    }
+
+    <ul class="list-group shadow-sm">
+        @for (p of productos; track p._id) {
+        <li class="list-group-item d-flex justify-content-between align-items-center bg-gradient px-4">
+            <span>
+                <strong>{{p.name}}</strong>
+                <span class="text-muted"> | {{p.category}}</span>
+            </span>
+            <span class="fw-semibold text-primary">{{p.price}}</span>
+        </li>
+        }
+        @empty {
+        <div class="text-center p-4">
+            <div class="spinner-border text-primary"></div>
+        </div>
+        }
+    </ul>
+</div>

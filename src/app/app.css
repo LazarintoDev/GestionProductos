@@ -3,29 +3,29 @@
     position: relative;
     overflow: hidden;
     background: linear-gradient(to right,
-            #f8f9fa,
-            #e9ecef,
-            #f8f9fa);
+            rgba(239, 210, 46, 0.4),
+            rgba(239, 210, 46, 0.2),
+            rgba(239, 210, 46, 0.1),
+            rgba(239, 210, 46, 0.05));
     transition: box-shadow 300ms ease;
 }
 
 
 /* Capa animada */
 .header-soft::after {
-    
     content: "";
     position: absolute;
     top: 0;
-    right: 0;
     /* empieza en la derecha */
+    right: 0;
     height: 100%;
-    width: 0%;
     /* invisible al inicio */
+    width: 0%;
     background: linear-gradient(to left,
             rgba(120, 174, 250, 0.55),
-            rgba(120, 174, 250, 0.117),
-            rgba(255, 255, 255, 0));
-    transition: width 300ms ease;
+            rgba(120, 174, 250, 0.22),
+            rgba(120, 174, 250, 0));
+    transition: 600ms ease-out;
     pointer-events: none;
 }
 
@@ -34,52 +34,58 @@
     width: 100%;
 }
 
-.header-soft:hover {
-    box-shadow: none !important;
-    transition: 300ms;
-}
-
-/* Contenido por encima */
-.header-soft>.container {
-    position: relative;
-    box-shadow: none;
-}
 
 
 .nav-link-soft {
-    position: relative;
-    color: #495057;
-    font-size: 1rem;
-    font-weight: 500;
-    padding-bottom: 4px;
+    display: inline-block;
+    transition:
+        font-size 200ms ease-out,
+        color 200ms ease;
 }
 
-/* LINEA BOTONES A REF */
+.nav-link-soft:hover {
+    color: #0153cf !important;
+    font-weight: 600 !important;
+    font-size: 1.03rem;
+    transition: 200ms ease-out;
+}
+
+/* Retraccion linea  botones */
 .nav-link-soft::after {
     content: "";
     position: absolute;
     bottom: 0;
-    right: 0;
     /* empieza desde la derecha */
+    right: 0;
     width: 0%;
     height: 2px;
-    background-color: #0d6efd;
     /* primary de Bootstrap */
-    transition: width 300ms ease;
+    background-color: #0d6efd;
+    transition: width 200ms ease-out;
 }
 
-/* Hover: línea aparece hacia la izquierda */
+/* Hover: entrada linea  hacia la izquierda */
 .nav-link-soft:hover::after {
-    width: 100%;
+    width: 105%; /* sobresale un poco por la izquierda */
     left: auto;
-    right: 0;
+    right: -5%; /* sobresale un poco por la derecha*/
+    transition: width 300ms ease-out;
 }
 
-/* Color de texto al hover */
-.nav-link-soft:hover {
-    color: #0d6efd;
-}
 
-.footer-shadow-top {
+.footer {
     box-shadow: 0 -10px 12px rgba(0, 0, 0, 0.08);
+    background: linear-gradient(to right,
+            rgba(239, 210, 46, 0.05),
+            rgba(239, 210, 46, 0.2),
+            rgba(239, 210, 46, 0.05));
 }
+
+.container-main {
+    background: linear-gradient(150deg,
+            rgba(239, 210, 46, 0.2),
+            rgba(239, 210, 46, 0.05),
+            rgba(120, 174, 250, 0.15),
+            rgba(120, 174, 250, 0.55));
+}
+

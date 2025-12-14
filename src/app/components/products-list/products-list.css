@@ -1,0 +1,12 @@
+.fade-slide-in-table {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeSlideInTable 1000ms ease-out forwards;
+}
+
+@keyframes fadeSlideInTable {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

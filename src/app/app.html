@@ -1,12 +1,13 @@
 <!-- CABECERA -->
-<header class="header-soft py-3 mb-4 shadow">
+<body class="fade-slide-in">
+  <header class="header-soft py-3 mb-5 shadow">
   <div class="container d-flex justify-content-between align-items-center">
 
-    <h1 class="h3 m-0 fw-normal border-start border-dark ps-3 border-3">Gestion de productos</h1>
+    <h1 class="h3 m-0 fw-semibold border-start border-dark ps-3 border-3">Gestion de productos</h1>
 
     <nav class="m-0 px-3 py-1 ">
-      <a href="#" class="nav-link-soft me-3 text-decoration-none">Inicio</a>
-      <a href="#" class="nav-link-soft text-decoration-none">Contacto</a>
+      <a href="#" class="nav-link-soft me-3 text-decoration-none text-muted fw-medium position-relative">Inicio</a>
+      <a href="#" class="nav-link-soft text-decoration-none text-muted fw-medium position-relative">Contacto</a>
     </nav>
 
   </div>
@@ -14,19 +15,21 @@
 
 
 <!-- CONTENIDO PRINCIPAL -->
-<main class="container mb-5">
-    <p class="text-muted text-center">
-      Proyecto iniciado, empezamos a desarrollar.
-    </p>
+<main class="container-main mb-5 py-3 px-3 rounded-4 m-5">
+
+      <app-products-list></app-products-list>
+    
 </main>
 
 
 <!-- FOOTER -->
- <footer class="footer-shadow-top bg-light py-3 text-center mt-auto">
+ <footer class="footer bg-light py-3 text-center mt-auto">
     <p class="m-0 text-muted">
       &copy; 2025 · Gestion Productos · Angular20+Bootstrap5
     </p>
  </footer>
+</body>
+
 
 
 <!--
