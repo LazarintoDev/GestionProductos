@@ -10,7 +10,7 @@ body{
 .fade-slide-in {
   opacity: 0;
   transform: translateY(10px);
-  animation: fadeSlideIn 1000ms ease-out forwards;
+  animation: fadeSlideIn 1000ms ease-out both;
 }
 
 

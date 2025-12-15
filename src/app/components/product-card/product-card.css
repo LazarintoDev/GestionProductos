@@ -1,0 +1,49 @@
+.btn:active {
+    scale: 0.9;
+    transition:
+        scale 100ms;
+}
+
+.btn:hover{
+    color: black;
+    transition: 100ms;
+}
+
+.btn {
+    color: rgba(190, 151, 9, 0.999);
+    transition: 100ms;
+}
+
+.image-ajust {
+    object-fit: contain;
+    height: 180px;
+    margin-top: 1.5rem;
+    /* equivalente a mt-4 en bootstrap */
+}
+
+.badge-bg{
+    background-color: rgba(239, 210, 46, 0.2) !important;
+}
+
+.badge-tag {
+    padding: 5% 1rem;
+    clip-path: polygon(
+        0% 0%,
+        100% 0%,
+        100% 100%,
+        100% 100%
+    );
+    border-top-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    font-size: 0.6rem;
+    font-weight: 500;
+}
+
+.rotate{
+    transform: rotate(45deg)
+}
+
+.disabled{
+    background-color:transparent;
+}
+
