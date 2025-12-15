@@ -1,16 +1,19 @@
 import { Component } from '@angular/core';
+
+/* Importar el modelo y el service */
 import { Product, ProductService } from '../../services/product';
-/* te traes el ProductCard */
-import { ProductCard } from '../product-card/product-card';
+
+/* Importar los componetes vayan a ser usados en el html */
+import { ProductCardComponent } from '../product-card/product-card';
 
 @Component({
   selector: 'app-products-list',
   standalone: true,
-  imports: [ProductCard], /* no olvides aqui */
+  imports: [ProductCardComponent], /* no olvides aqui */
   templateUrl: './products-list.html',
   styleUrl: './products-list.css',
 })
-export class ProductsList {
+export class ProductsListComponent {
 
   /*  Almecena la lista de productos */
   productos: Product[] = []

@@ -8,7 +8,7 @@ import { Product } from '../../services/product';
   templateUrl: './product-card.html',
   styleUrl: './product-card.css',
 })
-export class ProductCard {
+export class ProductCardComponent {
 /* 
   todo lo que me venga del input, lo almaceno en "producto", si no es null "!" 
   productCard se lo pasaremos a la llamada en el hijo (product-list.html) como atributo de <app-product-card>

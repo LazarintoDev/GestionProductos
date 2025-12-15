@@ -1,0 +1,52 @@
+<div class="w-75 m-auto mb-5 mt-3 shadow px-4 py-3">
+<h3 class="fw-semibold text-center">Alta producto</h3>
+
+
+<form [formGroup]="formGroup" (ngSubmit)="enviar()">
+    <div class="mb-3">
+      <label class="form-label">Nombre</label>
+<!-- 
+    formControlName es una directiva (clase "plantilla" que modifica comportamiento) de Angular, 
+    conecta el html con el FormGroup. Busca en el FormGroup un control llamado "name"
+-->
+      <input class="form-control " formControlName="name"><!-- Referencia al atributo name del formGroup -->
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Descripción</label>
+      
+      <textarea class="form-control" rows="2" formControlName="description"></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Precio</label>
+      <input type="number" min="0.05" class="form-control" formControlName="price">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Categoría</label>
+      <input class="form-control" formControlName="category">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">URL Imagen</label>
+      <input class="form-control" formControlName="image">
+    </div>
+
+<!-- formControlName='active' toma el valor de active del ts (true), se marca el checkbox -->
+    <div class="form-check mb-3">
+      <label for="activoCheck" class="form-check-label">Activo</label>
+      <input type="checkbox" class="form-check-input" formControlName="active" id="activoCheck">
+    </div>
+
+    <div class=" w-100 d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary w-fit px-3">
+            💾&nbsp;Guardar
+        </button>
+    </div>
+
+</form>
+
+</div>
+
+
