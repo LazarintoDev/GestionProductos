@@ -2,7 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
 
 /* Importar el modelo y el service */
-import { Product, ProductService} from './services/product';
+import { ProductService} from './services/productService';
+import { Producto } from '../models/model.producto';
 
 /* Componentes se importan aqui para usarlos en el html del componente */
 import { ProductsListComponent,  } from './components/products-list/products-list';
@@ -22,7 +23,7 @@ export class App {
 
   constructor (private productService: ProductService){
     this.productService.cargarProductos().subscribe(
-      (datos: Product[])=>console.log('Productos cargados de la API', datos)
+      (datos: Producto[])=>console.log('Productos cargados de la API', datos)
     )
 /*   si quieres meter más sentencias en ⬆️ añade corchetes y separalas con ;
 
@@ -35,7 +36,8 @@ export class App {
   }
   
 
-  onProductoCreado(product: any){
-    console.log('Producto cargado correctamente', product)
+  onProductoCreado(producto: Producto){
+    this.productService.agregarProducto(producto)
+    console.log('Producto cargado correctamente', producto)
   }
 }

@@ -7,11 +7,12 @@
     }
 
 <!--     <ul class="list-group shadow-sm"> -->
-        @for (p of productos; track p._id; let i = $index) {
+        @for (producto of productos$ | async; track producto._id; let index = $index) {  <!--  @for (producto of productos; track producto._id; let index = $index)  -->
         <div class="max-card-width col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
             <app-product-card 
-                [productCard]="p"
-                [index]="i">
+                [productCard]="producto"
+                [index]="index"
+                >
             </app-product-card>
         </div>
 

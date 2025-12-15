@@ -1,5 +1,6 @@
 import { Component, Input} from '@angular/core';
-import { Product } from '../../services/product';
+import { Producto } from '../../../models/model.producto'; 
+import { ProductService } from '../../services/productService';
 
 @Component({
   selector: 'app-product-card',
@@ -14,7 +15,15 @@ export class ProductCardComponent {
   productCard se lo pasaremos a la llamada en el hijo (product-list.html) como atributo de <app-product-card>
   index igual a productCard, para indicar el numero de iteración del for del product-list.html
 */
-  @Input() productCard!: Product;
+  @Input() productCard!: Producto;
   @Input() index!: Number;
+
+  constructor (private productService: ProductService){
+
+  }
+
+  eliminarProducto(){
+    this.productService.eliminarProducto(this.productCard._id)
+  }
 
 }
