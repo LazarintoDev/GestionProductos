@@ -15,7 +15,8 @@ import { BehaviorSubject } from 'rxjs';
 
 export class ProductService {
   private urlApi = "https://api.npoint.io/1dee63ad8437c82b24fe"  /* e */
-  private productSubject = new BehaviorSubject<Producto[]>([]) 
+  private productSubject = new BehaviorSubject<Producto[]>([])
+
 
 /* el $ al final de la variable, es una convencion para indicar que es un flujo de datos, 
   que es Observable, tienes que usar subscribe o async -> es reactivo 
@@ -23,8 +24,17 @@ export class ProductService {
 */
   productos$ = this.productSubject.asObservable()
 
-/* copia de la lista original */
+/* variable modelo de Producto, para elaborar listas */
   private productosOriginales: Producto[] = [];
+
+/* variables para el ProductFilterComponent */
+  private filtroNombre = ''
+  private filtroCategoria = ''
+  private filtroPrecio = 0
+  private filtroActivos = false
+
+
+
 
 /* Inyección de depencias HttpClient a la variable http */
   constructor(private httpClient: HttpClient){}
@@ -106,6 +116,59 @@ por consistencia, mejor un papel nuevo que tachar el existente
 
   this.productSubject.next(nuevaLista); //actualiza la lista
 }
+
+/* metodos para el ProductFilterComponent */
+private aplicarFiltros(): void {
+  let lista = [...this.productosOriginales]
+
+  if (this.filtroNombre){ //entra si filtroNombre tiene algo
+    lista = lista.filter(p => //filter recorre la lista p tiene la forma de Producto[]
+      p.name.toUpperCase().includes(this.filtroNombre.toUpperCase()) //includes busca coincidencias (igual que like de sql)
+    )
+  }
+
+  if (this.filtroCategoria){
+    lista = lista.filter(p =>
+      p.category.toUpperCase().includes(this.filtroCategoria.toUpperCase())
+    )
+  }
+  
+  if (this.filtroActivos){
+    lista = lista.filter(p => p.active)//dame los que son activos
+  }
+
+  if (this.filtroPrecio > 0){
+    lista = lista.filter(p =>
+      p.price < this.filtroPrecio
+    )
+  }
+
+
+  this.productSubject.next(lista)//actualiza la lista
+}
+
+/*Setter de filtros, estos son invocados por los hadlers */
+  filtrarPorNombreService(nombre: string): void {
+    this.filtroNombre = nombre;
+    this.aplicarFiltros();
+  }
+
+  filtrarPorCategoriaService(categoria: string): void {
+    this.filtroCategoria = categoria;
+    this.aplicarFiltros();
+  }
+
+  filtrarPorPrecioService(precio: number): void {
+    this.filtroPrecio = precio;
+    this.aplicarFiltros();
+  }
+
+
+
+  filtrarSoloActivosService(activo: boolean): void {
+    this.filtroActivos = activo;
+    this.aplicarFiltros();
+  }
 
   
 }

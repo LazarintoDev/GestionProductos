@@ -8,13 +8,14 @@ import { Producto } from '../models/model.producto';
 /* Componentes se importan aqui para usarlos en el html del componente */
 import { ProductsListComponent,  } from './components/products-list/products-list';
 import { ProductFormComponent } from './components/product-form/product-form';
+import { ProductFilterComponent } from './components/product-filter-component/product-filter-component';
 
 /* import { RouterOutlet } from '@angular/router'; */
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, ProductsListComponent, ProductFormComponent],
+  imports: [CommonModule, ProductsListComponent, ProductFormComponent, ProductFilterComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -35,9 +36,9 @@ export class App {
     )  */
   }
   
-
   onProductoCreado(producto: Producto){
     this.productService.agregarProducto(producto)
     console.log('Producto cargado correctamente', producto)
   }
+
 }

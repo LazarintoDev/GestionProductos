@@ -2,37 +2,37 @@
 
 <div class="row g-4" [class.fade-slide-in-list]="animarLista">
 
+    @if (productos$ | async; as productos) {
     @if (productos.length>0) {
     <h3 class="fw-semibold text-center">Listado de productos</h3>
     }
 
-<!--     <ul class="list-group shadow-sm"> -->
-        @for (producto of productos$ | async; track producto._id; let index = $index) {  <!--  @for (producto of productos; track producto._id; let index = $index)  -->
-        <div class="max-card-width col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
-            <app-product-card 
-                [productCard]="producto"
-                [index]="index"
-                >
-            </app-product-card>
-        </div>
+    <!--     <ul class="list-group shadow-sm"> -->
+    @for (producto of productos; track producto._id; let index = $index) {
+    <!--  @for (producto of productos; track producto._id; let index = $index)  -->
+    <div class="max-card-width col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 col-xxl-2">
+        <app-product-card [productCard]="producto">
+        </app-product-card>
+    </div>
 
 
-<!--         <li class="list-group-item d-flex justify-content-between align-items-center bg-gradient px-4">
+    <!--         <li class="list-group-item d-flex justify-content-between align-items-center bg-gradient px-4">
             <span>
                 <strong>{{p.name}}</strong>
                 <span class="text-muted"> | {{p.category}}</span>
             </span>
             <span class="fw-semibold text-primary">{{p.price}}</span>
         </li> -->
-        }
-        @empty {
-        <div class="text-center p-4">
-            <div class="spinner-border text-primary"></div>
-        </div>
-        }
-<!--     </ul> -->
+    }
+    @empty {
+    <div class="text-center p-4">
+        <div class="spinner-border text-primary"></div>
+    </div>
+    }
+    <!--     </ul> -->
+
+    }
 
 </div>
 
 <!-- </div> -->
-
